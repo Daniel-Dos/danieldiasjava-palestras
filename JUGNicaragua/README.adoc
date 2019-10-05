@@ -1,3 +1,97 @@
 = Simplificando la persistencia de datos con Apache DeltaSpike
 
+=== Arquitectura 
 
+El proyecto se construye utilizando los siguientes marcos:
+
+Para la creación de API utilizamos el Micro Framework [Oracle Helidon](https://helidon.io/#/) .
+
+Para persistir usamos el [APACHE DELTASPIKE-Data](https://deltaspike.apache.org) .
+
+Java 8
+
+Maven
+
+H2 database 
+
+=== Instrucciones de uso
+
+[source,bash]
+----
+mvn clean package -DskipTests
+----
+
+En tiempo de ejecución, realiza una carga inicial para `Exam` y` Lab` al leer el archivo txt ubicado en la carpeta` resources`.
+
+El endpoint es : 
+
+=== Examen
+
+GET - Lista Examenes = `http://localhost:8080/examenes/`
+
+GET - Buscar examenes por Nombre = `http://localhost:8080/examenes/{nombre}`
+
+DELETE - Eliminar uno examen por id = `http://localhost:8080/examenes/{id}`
+
+POST - Crear uno nuevo examen = `http://localhost:8080/examenes/`
+
+=== ejemplo
+
+[source,json]
+----
+	 {
+        "laboratorios": [{"id":1},{"id":2}],
+        "nombre": "Sangue",
+        "status": "ATIVO",
+        "tipo": "ANALISE"
+     }
+----
+
+PUT = Atualiza um Examen = `http://localhost:8080/examenes/`
+
+=== ejemplo :
+[source,json]
+----
+	{   
+        "laboratorios": [{"id":1},{"id":2}],
+        "nombre": "Sangue",
+        "status": "ATIVO",
+        "tipo": "ANALISE",
+        "id":1
+    }
+----
+
+=== Laboratorio
+
+GET - Lista laboratorios = `http://localhost:8080/laboratorios/`
+
+GET - Busca laboratorio por Nombre = `http://localhost:8080/laboratorios/{nombre}`
+
+DELETE - Eliminar uno laboratorio por id = `http://localhost:8080/laboratorios/{id}`
+
+POST - Crea umo nuevo laboratorio = `http://localhost:8080/laboratorios/`
+
+==== ejemplo
+[souce,json]
+----
+	 {
+
+        "nombre": "Sangue",
+        "status": "ATIVO",
+        "endereco": "Rua do Chile"
+     }
+----
+
+PUT = Atualiza um Laboratorio = `http://localhost:8080/laboratorios/`
+
+ejemplo :
+[source,json]
+----
+	 {
+
+        "nombre": "Sangue",
+        "status": "ATIVO",
+        "endereco": "Rua do Chile",
+        "id":1
+     }
+----

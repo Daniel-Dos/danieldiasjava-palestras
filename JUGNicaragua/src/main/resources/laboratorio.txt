@@ -1,0 +1,6 @@
+Clinica Sao Pedro-Rua Pedro II-ATIVO
+Clinica Albert-Av Brasil-ATIVO
+Hospital Calunga-Av Paulista-INATIVO
+Centro Medico do Ri-Av das Americas-INATIVO
+Centro Medico Dr Eliane-Rua Chile-ATIVO
+Clinica Geral Dr Fernando-Rua do Mexico-INATIVO
