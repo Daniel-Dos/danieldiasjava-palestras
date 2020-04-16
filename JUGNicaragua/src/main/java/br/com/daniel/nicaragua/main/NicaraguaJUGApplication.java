@@ -9,6 +9,7 @@ import org.apache.deltaspike.core.api.provider.BeanProvider;
 
 import br.com.daniel.nicaragua.repositorio.ExamenRepositorio;
 import br.com.daniel.nicaragua.repositorio.LaboratorioRepositorio;
+import br.com.daniel.nicaragua.repositorio.PreBoot;
 import br.com.daniel.nicaragua.service.ExamenService;
 import br.com.daniel.nicaragua.service.LaboratorioService;
 import io.helidon.media.jsonb.server.JsonBindingSupport;
@@ -24,8 +25,12 @@ public class NicaraguaJUGApplication {
 
         ContextControl contextControl = cdiContainer.getContextControl();
         contextControl.startContext(ApplicationScoped.class);
-        
+
+        // pre-boot
+        BeanProvider.getContextualReference(PreBoot.class, false);
+
         LaboratorioRepositorio laboratorioRepositorio = BeanProvider.getContextualReference(LaboratorioRepositorio.class, false);
+
         ExamenRepositorio examenRepositorio = BeanProvider.getContextualReference(ExamenRepositorio.class, false);
 
         ServerConfiguration configuration = ServerConfiguration.builder().port(Integer.parseInt("8080")).build();

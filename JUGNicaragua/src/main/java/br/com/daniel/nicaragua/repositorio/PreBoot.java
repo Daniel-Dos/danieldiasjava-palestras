@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Initialized;
 import javax.enterprise.event.Observes;
@@ -35,7 +36,8 @@ public class PreBoot {
     @InjectableResource(location = "examenes.txt")
     private InputStream inputExamen;
 
-    public void init(@Observes @Initialized(ApplicationScoped.class) Object init) {
+    @PostConstruct
+    public void init() {
 
         try (BufferedReader laboratoriosInput = new BufferedReader(new InputStreamReader(inputLaboratorio));
              BufferedReader examenesInput = new BufferedReader(new InputStreamReader(inputExamen))) {
